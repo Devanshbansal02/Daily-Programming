@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string empty="", rev="";
+        for(int i=0; i<s.length() ;i++){
+            if(isalnum(s[i]))
+            empty+=tolower(s[i]);
+        }
+        rev = empty;
+        reverse(empty.begin(), empty.end());
+        if(rev==empty)
+        return true;
+        else
+        return false;
+    }
+};
