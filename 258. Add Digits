@@ -1,0 +1,18 @@
+class Solution {
+public:
+    long adding(int n){
+        int s=0;
+        while(n){
+            int temp=n%10;
+            s+=temp;
+            n/=10;
+        }
+        if(s<10) return s;
+        else return adding(s);
+    }
+
+    int addDigits(int num) {
+        long ss=adding(num);
+        return ss;
+    }
+};
