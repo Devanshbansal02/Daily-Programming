@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> findLonely(vector<int>& nums) {
+        unordered_map<int, int> mm;
+        vector<int> v;
+        for(auto it:nums){
+            mm[it]++;
+        }
+        int key1, key2;
+        for(auto it : mm){
+            key1=it.first-1;
+            key2=it.first+1;
+            if(it.second == 1 && mm.count(key1)==0 && mm.count(key2)==0){
+                v.push_back(it.first);
+            }
+        }
+        return v;
+    }
+};
