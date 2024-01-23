@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        vector<int> v;
+        int n=nums.size();
+        unordered_map<int, int> cc;
+        for(int i=0; i<n ;i++){
+            cc[nums[i]]=0;
+            for(int j=0 ; j<n;j++){
+                if(nums[i]>nums[j])
+                cc[nums[i]]++;
+            }
+            v.push_back(cc[nums[i]]);
+        }
+        return v;
+    }
+};
