@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool isSameAfterReversals(int num) {
+        int r1=0, r2=0, c=num, t;
+        while(c){
+            t=c%10;
+            c/=10;
+            r1*=10;
+            r1+=t;
+        }
+        while(r1){
+            t=r1%10;
+            r1/=10;
+            r2*=10;
+            r2+=t;
+        }
+        if(num==r2) return true;
+        return false;
+    }
+};
