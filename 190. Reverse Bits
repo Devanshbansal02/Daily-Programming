@@ -1,0 +1,26 @@
+class Solution {
+public:
+    uint32_t pow(uint32_t a, uint32_t b){
+    if(b==0)
+    return 1;
+    else
+    return a*pow(a, b-1);
+}
+    uint32_t reverseBits(uint32_t n) {
+        uint32_t bit, power=31, sum=0;
+    vector<uint32_t> v;//binaryrev
+    while(n){
+        bit=n%2;
+        n/=2;
+        v.emplace_back(bit);
+    }
+    for(auto it:v){
+        // cout<<it<<endl;
+        uint32_t temp=it*(pow(2,power));
+        // cout<<temp<<" "<<pow(2,power)<<endl;
+        sum+=temp;
+        power--;
+    }
+    return sum;
+    }
+};
