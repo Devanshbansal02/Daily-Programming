@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxProfitAssignment(vector<int>& difficulty, vector<int>& profit, vector<int>& worker) {
+        int p=0;
+        int s=worker.size(), count=0, n=difficulty.size();
+        for(int j=0;j<s;j++){
+            int ii=0;
+            for(int i=0; i<n ;i++){
+                if(difficulty[i]<=worker[j]){
+                    if(ii<profit[i]){
+                        ii=profit[i];
+                    }
+                }  
+            }
+            p+=ii;
+        }
+        return p;
+    }
+};
