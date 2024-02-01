@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int countKeyChanges(string s) {
+        int dif=0, n=s.length();
+        char state=' ';
+        for(int i=0;i<n;i++){
+            if(state!=s[i] && abs((int)state-(int)s[i])!=32) dif++;
+            state=s[i];
+        }
+        return dif-1;
+    }
+};
