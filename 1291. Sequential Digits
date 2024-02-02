@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> sequentialDigits(int low, int high) {
+        int adder=11, numswitch=12, toincrease, copy, i=0,j=0;
+        vector<int> v, ans;
+        copy=numswitch;
+        while(numswitch<=1000000000){
+            if(numswitch%10!=0){
+            v.push_back(numswitch);
+            numswitch+=adder;
+            }
+            else if(numswitch%10==0){
+                toincrease=(copy%10)+1;
+                numswitch=copy*10+toincrease;
+                adder=adder*10+1;
+                copy=numswitch;
+            }
+        }
+        while(v[i]<low && i<37){
+            i++;
+        }
+        while(v[j]<high && j<37){
+            j++;
+        }
+        for(int k=i; k<j && abs(v[k])<=123456789; k++){
+            ans.push_back(v[k]);
+        }
+        if(find(v.begin(),v.end(),high)!=v.end()) ans.push_back(high);
+        return ans;
+    }
+};
