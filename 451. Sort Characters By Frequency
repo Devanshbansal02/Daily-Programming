@@ -1,0 +1,26 @@
+class Solution {
+public:
+    static bool comp(pair<char,int>& a, pair<char,int>& b){
+        return a.second > b.second;
+    }
+
+    string frequencySort(string s) {
+        int n = s.length();
+        string ans = "";
+        unordered_map<char,int> mm;
+        for(auto it : s) {
+            mm[it]++;
+        }
+
+        vector<pair<char, int>> vec(mm.begin(), mm.end()); 
+        sort(vec.begin(), vec.end(), comp);
+
+        for(auto it : vec) {
+            while(it.second) {
+                ans += it.first;
+                it.second--;
+            }
+        }
+        return ans;
+    }
+};
