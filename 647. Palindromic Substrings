@@ -1,0 +1,17 @@
+class Solution {
+public:
+     int countSubstrings(string s) {
+        int ans = s.size();
+        for (int left = 0; left < s.size(); left++) {
+            string x = "";
+            x += s[left];
+            for (int right = left + 1; right < s.size(); right++) {
+                x += s[right];
+                string rev = x;
+                reverse(rev.begin(), rev.end());
+                if( x == rev)ans++;
+            }
+        }
+        return ans;
+    }
+};
