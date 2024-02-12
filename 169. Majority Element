@@ -1,0 +1,16 @@
+class Solution {
+public:
+    static bool comp(pair<int,int> A, pair<int,int> B){
+        return A.second>B.second;
+    }
+    int majorityElement(vector<int>& nums) {
+        unordered_map<int,int> mm;
+        for(auto it:nums){
+            mm[it]++;
+        }
+        vector<pair<int,int>> mp(mm.begin(),mm.end());
+        sort(mp.begin(),mp.end(),comp);
+        int i=0,n=nums.size();
+        return mp[i].first;
+    }
+};
