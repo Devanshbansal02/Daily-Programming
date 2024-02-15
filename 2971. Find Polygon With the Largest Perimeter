@@ -1,0 +1,16 @@
+class Solution {
+public:
+    long long largestPerimeter(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        vector<long long>x(nums.size());
+        x[0]=nums[0];
+        for(int i=1;i<nums.size();i++){
+            x[i]+=nums[i]+x[i-1];
+        }
+
+        for(int i=nums.size()-1;i>=2;i--){
+            if(x[i]<x[i-1]*2) return x[i];
+        }
+        return -1;
+    }
+};
