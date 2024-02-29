@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_map<int,int> mm;
+        for(auto it:nums){
+            mm[it]++;
+        }
+        for(auto it:mm){
+            if(it.second>1) return true;
+        }
+        return false;
+    }
+};v
