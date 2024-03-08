@@ -1,0 +1,22 @@
+class Solution {
+public:
+    static bool comp(pair<int,string> A,pair<int,string> B){
+        return A.first>B.first;
+    }
+    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+        vector<pair<int,string>> vp;
+        int n=names.size();
+        for(int i=0;i<n;i++){
+            pair<int,string> temp;
+            temp.first=heights[i];
+            temp.second=names[i];
+            vp.push_back(temp);
+        }
+        sort(vp.begin(),vp.end(),comp);
+        vector<string> ans;
+        for(auto it:vp){
+            ans.push_back(it.second);
+        }
+        return ans;
+    }
+};
